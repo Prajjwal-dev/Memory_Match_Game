@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('game-box-gif.gif'); /* Replace with your background image path */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  position: relative; /* Ensures positioning context for the popup */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Space inside the container */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #ff5722;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #e64a19;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #ff9800;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  background-color: #8bc34a;
+}
+
+.card.matched {
+  background-color: #4caf50;
+  pointer-events: none;
+  animation: matchAnimation 0.5s forwards; /* Animation for matched cards */
+}
+
+.card.hidden {
+  background-color: #ff9800;
+  color: transparent;
+  cursor: default;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  text-align: center; /* Centering text inside the popup */
+}
+
+.popup-content {
+  margin: 0; /* Ensures there is no margin */
+}
+
+.popup-content button {
+  margin-top: 10px;
+  background-color: #ff5722;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup-content button:hover {
+  background-color: #e64a19;
+}
+
+@keyframes matchAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #4caf50; /* Color for matched cards */
+  }
+}

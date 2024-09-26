@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match Game</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Logo.jpeg" type="image/png">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Memory Match Game</h1>
+    <div class="game-info">
+      <p>Moves: <span id="moves">0</span></p>
+      <p>Time: <span id="time">0</span> seconds</p>
+      <p>High Score: <span id="highScore">0</span> moves</p>
+      <button id="restart">Restart Game</button>
+    </div>
+    <div class="game-board" id="gameBoard"></div>
+  </div>
+
+  <div class="popup" id="popup" style="display: none;">
+    <div class="popup-content">
+      <p id="popupMessage"></p>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+  
+  <audio id="cardClickSound" src="ting.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
